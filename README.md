@@ -42,7 +42,7 @@ A VENIR
 
     Cloner le dépôt :
 
-git clone https://github.com/ton-utilisateur/mon-site.git
+git clone https://github.com/sidneygitteau/site-personnel.git
 cd mon-site
 
 Installer les dépendances :
