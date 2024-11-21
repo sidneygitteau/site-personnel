@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    @apply bg-black text-white font-sans; /* fond noir et texte blanc */
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-electric-blue; /* titres en gras et bleu électrique */
+}
+
+a {
+    @apply text-primary-blue hover:text-electric-blue transition duration-300 ease-in-out; /* Liens */
+    text-decoration: none;
+}
+
+ul {
+    @apply list-none; /* permet de supprimer les puces des listes */
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    @apply bg-primary-blue px-4 py-2 text-white rounded hover:bg-electric-blue transition duration-300 ease-in-out;
+    border: none;
+    cursor: pointer;
+}
+
+input, textarea {
+    @apply border border-gray-600 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-electric-blue;
+    @apply bg-black text-white;
+    margin-bottom: 1rem;
+}
