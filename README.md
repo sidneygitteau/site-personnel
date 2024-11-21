@@ -40,7 +40,7 @@ A VENIR
 
 📦 Installation et exécution
 
-    Cloner le dépôt :
+Cloner le dépôt :
 
 git clone https://github.com/sidneygitteau/site-personnel.git
 cd mon-site
