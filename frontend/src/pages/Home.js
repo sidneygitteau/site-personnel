@@ -94,12 +94,12 @@ const Home = () => {
         {/* Section gauche */}
         <div className="md:w-1/2">
           <h1 className="text-7xl font-extrabold mb-8 leading-tight text-center md:text-left text-white">
-            Bienvenue sur mon site !
+            Bienvenue !
           </h1>
           <p className="text-3xl leading-relaxed mb-8">
             Vous êtes sur le site de  <span className="text-electric-blue font-semibold">Sidney GITTEAU</span>, tout récemment diplômé d'un Master Informatique.
           </p>
-          <h2 className="text-4xl font-bold mb-4">Sur ce site, vous trouverez :</h2>
+          <h2 className="text-4xl font-bold mb-4">Vous trouverez :</h2>
           {/* Tableau 2x2 */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-8 shadow-lg border-2 border-electric-blue text-center hover:scale-105 transition-transform duration-300">
@@ -116,7 +116,7 @@ const Home = () => {
             </div>
           </div>
           <p className="text-2xl leading-relaxed">
-            Sur ce site se cachent des indices afin de trouver un mot caché qui donne quelque chose que j'aime énormément ! Si vous trouvez les lettres donnant le mot secret, vous pourrez écrire votre nom afin d'être mentionné sur cette page.
+            Sur ce site se cachent des indices afin de trouver un mot caché qui mit bout à bout donnent un mot de quelque chose que j'aime énormément ! Si vous trouvez les lettres donnant le mot secret (3 lettres), vous pouvez le renseigner en bas de cette page, puis écrire votre nom afin d'être mentionné dans les personnes qui ont réussi l'énigme !
           </p>
         </div>
 
@@ -164,7 +164,7 @@ const Home = () => {
             className="bg-gradient-to-br from-gray-800 to-gray-900 p-12 rounded-3xl max-w-2xl mx-auto shadow-2xl relative overflow-hidden border-2 border-electric-blue"
           >
             <h2 className="text-5xl font-extrabold mb-6 text-center text-electric-blue">
-              Ajoutez vos informations
+              Votre nom 
             </h2>
             <input
               type="text"
