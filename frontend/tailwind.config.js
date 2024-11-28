@@ -6,10 +6,11 @@ module.exports = {
   theme: {
       extend: {
           colors: {
-              'primary-blue': '#007bff',      // Bleu classique
-              'electric-blue': '#00e7ff',    // Bleu électrique
+              'primary-blue': '#212E53',      // Bleu classique
+              'electric-blue': '#0a363b',    // Bleu électrique
               'black': '#000000',            // Noir
               'white': '#ffffff',            // Blanc
+              'red' : '#ff0000',             // rouge         
           },
       },
   },

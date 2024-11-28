@@ -7,13 +7,13 @@ const Home = () => {
   const [passwordInput, setPasswordInput] = useState('');
   const [nameInput, setNameInput] = useState('');
   const [hideTextAndImage, setHideTextAndImage] = useState(false);
-  const correctPassword = 'PSG'; // Mot de passe correct
+  const correctPassword = 'PSG'; // mot secret (la réponse a la question eheh)
 
-  // Charger les utilisateurs depuis la base de données
+  // Charger les utilisateurs depuis la base de données mongo
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('http://localhost:5000/users'); // Requête GET
+        const response = await fetch('http://localhost:5000/users');
         const data = await response.json();
         setUsers(data);
       } catch (error) {
@@ -64,7 +64,7 @@ const Home = () => {
 
         if (response.ok) {
           const newUser = await response.json();
-          setUsers((prevUsers) => [...prevUsers, { name: nameInput }]); // Mettre à jour localement
+          setUsers((prevUsers) => [...prevUsers, { name: nameInput }]);
           setNameInput('');
           alert('Utilisateur ajouté avec succès !');
         } else {
@@ -84,66 +84,63 @@ const Home = () => {
       {/* Animation de fond */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#212E53] to-black opacity-40 animate-gradient blur-lg"></div>
 
-        
+      <div className="relative z-10 px-8 space-y-24 pt-20">
+
+      {/* Titre principal centré en haut */}
+      <div className="text-center">
+          <h1 className="text-5xl font-extrabold mb-4 text-white">Bienvenue !</h1>
+        </div>
+      </div>
       {/* Section principale */}
       <div
-        className={`relative z-10 flex flex-col md:flex-row items-center justify-center px-4 py-8 transition-opacity duration-700 pt-20 ${
+        className={`relative z-10 flex flex-col md:flex-row items-center justify-center px-4 py-8 transition-opacity duration-700 ${
           hideTextAndImage ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}
       >
         {/* Section gauche */}
-        <div className="md:w-1/2">
-          <h1 className="text-7xl font-extrabold mb-8 leading-tight text-center md:text-left text-white">
-            Bienvenue !
-          </h1>
+        <div className="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
           <p className="text-3xl leading-relaxed mb-8">
-            Vous êtes sur le site de  <span className="text-electric-blue font-semibold">Sidney GITTEAU</span>, tout récemment diplômé d'un Master Informatique.
+            Vous êtes sur le site de <span className="text-white font-semibold">Sidney GITTEAU</span>, tout récemment diplômé d'un Master Informatique.
           </p>
           <h2 className="text-4xl font-bold mb-4">Vous trouverez :</h2>
           {/* Tableau 2x2 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-8 shadow-lg border-2 border-electric-blue text-center hover:scale-105 transition-transform duration-300">
-              <h3 className="text-3xl font-bold text-electric-blue">Des informations à mon sujet</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-8 shadow-lg border-2 border-primary-blue text-center hover:scale-105 transition-transform duration-300">
+              <p className="text-2xl font-bold">Des informations à mon sujet</p>
             </div>
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-8 shadow-lg border-2 border-electric-blue text-center hover:scale-105 transition-transform duration-300">
-              <h3 className="text-3xl font-bold text-electric-blue">Mes expériences professionnelles</h3>
+            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-8 shadow-lg border-2 border-primary-blue text-center hover:scale-105 transition-transform duration-300">
+              <p className="text-2xl font-bold">Mes expériences professionnelles</p>
             </div>
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-8 shadow-lg border-2 border-electric-blue text-center hover:scale-105 transition-transform duration-300">
-              <h3 className="text-3xl font-bold text-electric-blue">Mes projets</h3>
+            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-8 shadow-lg border-2 border-primary-blue text-center hover:scale-105 transition-transform duration-300">
+              <p className="text-2xl font-bold">Mes projets</p>
             </div>
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-8 shadow-lg border-2 border-electric-blue text-center hover:scale-105 transition-transform duration-300">
-              <h3 className="text-3xl font-bold text-electric-blue">Mon parcours scolaire</h3>
+            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-8 shadow-lg border-2 border-primary-blue text-center hover:scale-105 transition-transform duration-300">
+              <p className="text-2xl font-bold">Mon parcours scolaire</p>
             </div>
           </div>
-          <p className="text-2xl leading-relaxed">
-            Sur ce site se cachent des indices afin de trouver un mot caché qui mit bout à bout donnent un mot de quelque chose que j'aime énormément ! Si vous trouvez les lettres donnant le mot secret (3 lettres), vous pouvez le renseigner en bas de cette page, puis écrire votre nom afin d'être mentionné dans les personnes qui ont réussi l'énigme !
+          <p className="text-2xl leading-relaxed mt-8">
+            Sur ce site se cachent des indices afin de trouver un mot caché qui, mis bout à bout, donnent un mot de quelque chose que j'aime énormément ! Trouvez les lettres formant le mot secret (3 lettres), renseignez-le en bas de cette page, puis entrez votre nom pour être mentionné parmi ceux qui ont réussi l'énigme !
           </p>
         </div>
 
         {/* Section droite (Image) */}
-        <div className="md:w-1/2 flex justify-center mt-6 md:mt-0">
+        <div className="md:w-1/2 flex justify-center">
           <img
-            className="rounded-lg shadow-lg h-[500px] w-auto transform hover:scale-110 transition duration-500 animate-parallax"
             src={clavier}
             alt="Clavier"
+            className="rounded-lg shadow-lg h-[500px] w-auto transform hover:scale-110 transition duration-500"
           />
         </div>
       </div>
 
       {/* Formulaire mot secret */}
-      <div
-        className={`relative z-10 mt-24 px-4 transition-transform duration-700 ${
-          hideTextAndImage ? 'translate-y-0' : 'translate-y-32'
-        }`}
-      >
+      <div className="relative z-10 mt-24 px-4">
         {!isPasswordCorrect ? (
           <form
             onSubmit={handlePasswordSubmit}
-            className="bg-gradient-to-br from-gray-800 to-gray-900 p-12 rounded-3xl max-w-2xl mx-auto shadow-2xl relative overflow-hidden border-2 border-electric-blue"
+            className="bg-gradient-to-br from-gray-800 to-gray-900 p-12 rounded-3xl max-w-2xl mx-auto shadow-2xl relative overflow-hidden border-2 border-primary-blue"
           >
-            <h2 className="text-5xl font-extrabold mb-6 text-center text-electric-blue">
-              Quel est le mot secret ?
-            </h2>
+            <h2 className="text-5xl font-extrabold mb-6 text-center text-white">Quel est le mot secret ?</h2>
             <input
               type="password"
               value={passwordInput}
@@ -153,7 +150,7 @@ const Home = () => {
             />
             <button
               type="submit"
-              className="mt-8 bg-electric-blue text-black px-8 py-4 rounded-full hover:bg-blue-600 transition duration-300 w-full transform hover:scale-110 text-2xl font-semibold shadow-md"
+              className="mt-8 bg-white text-black px-8 py-4 rounded-full hover:bg-blue-600 transition duration-300 w-full transform hover:scale-110 text-2xl font-semibold shadow-md"
             >
               Valider
             </button>
@@ -161,11 +158,9 @@ const Home = () => {
         ) : (
           <form
             onSubmit={handleAddUser}
-            className="bg-gradient-to-br from-gray-800 to-gray-900 p-12 rounded-3xl max-w-2xl mx-auto shadow-2xl relative overflow-hidden border-2 border-electric-blue"
+            className="bg-gradient-to-br from-gray-800 to-gray-900 p-12 rounded-3xl max-w-2xl mx-auto shadow-2xl relative overflow-hidden border-2 border-primary-blue"
           >
-            <h2 className="text-5xl font-extrabold mb-6 text-center text-electric-blue">
-              Votre nom 
-            </h2>
+            <h2 className="text-5xl font-extrabold mb-6 text-center text-white">Votre nom</h2>
             <input
               type="text"
               value={nameInput}
@@ -175,7 +170,7 @@ const Home = () => {
             />
             <button
               type="submit"
-              className="mt-8 bg-electric-blue text-black px-8 py-4 rounded-full hover:bg-blue-600 transition duration-300 w-full transform hover:scale-110 text-2xl font-semibold shadow-md"
+              className="mt-8 bg-white text-black px-8 py-4 rounded-full hover:bg-blue-600 transition duration-300 w-full transform hover:scale-110 text-2xl font-semibold shadow-md"
             >
               Ajouter
             </button>
@@ -185,12 +180,10 @@ const Home = () => {
 
       {/* Liste des utilisateurs */}
       <div className="relative z-10 mt-24 px-4">
-        <h2 className="text-5xl font-extrabold mb-6 text-center text-electric-blue">
-          Les maîtres du mot secret
-        </h2>
-        <ul className="list-none mx-auto max-w-3xl bg-gradient-to-r from-black via-gray-900 to-[#212E53] p-8 rounded-3xl shadow-2xl space-y-4 border-2 border-electric-blue">
+        <h2 className="text-5xl font-extrabold mb-6 text-center text-white">Les maîtres du mot secret</h2>
+        <ul className="list-none mx-auto max-w-3xl bg-gradient-to-r from-black via-gray-900 to-[#212E53] p-8 rounded-3xl shadow-2xl space-y-4 border-2 border-primary-blue">
           {users.map((user, index) => (
-            <li key={index} className="text-electric-blue text-3xl font-bold text-center">
+            <li key={index} className="text-white text-3xl font-bold text-center">
               {user.name}
             </li>
           ))}
@@ -198,13 +191,10 @@ const Home = () => {
       </div>
 
       {/* Ajout d'un espace supplémentaire pour le scroll */}
-        <div className="relative z-10 mt-24 px-4">
-        <div className="h-32"></div> {/* Conteneur invisible pour ajouter un espace */}
-        </div>
-
+      <div className="relative z-10 mt-24 px-4">
+        <div className="h-32"></div>
+      </div>
     </div>
-
-    
   );
 };
 

@@ -17,8 +17,8 @@ const Moi = () => {
       <div className="relative z-10 space-y-24 px-8 py-12 pt-20">
         {/* Titre principal */}
         <div className="text-center mb-12">
-          <h1 className="text-7xl font-extrabold mb-8 leading-tight text-white">
-            À propos de moi
+          <h1 className="text-5xl font-extrabold mb-4 text-white">
+              À propos de moi
           </h1>
         </div>
 
@@ -131,7 +131,7 @@ const Moi = () => {
           <div className="md:w-1/2 text-center md:text-left text-justify">
             <h2 className="text-4xl font-bold mb-6">Sports</h2>
             <p className="text-3xl leading-relaxed">
-              Je suis un grand fan de <span className="text-electric-blue font-semibold">S</span>ports : que ce soit le basketball, le volley-ball ou encore le tennis. Mais mon sport préféré est le football. 
+              Je suis un grand fan de <span className="text-red font-semibold">S</span>ports : que ce soit le basketball, le volley-ball ou encore le tennis. Mais mon sport préféré est le football. 
               Que ce soit en tant que spectateur ou joueur amateur, en herbe ou en salle, j'aime ce sport, et j'aime l'analyser d'un point de vue tactique et statistique.
             </p>
           </div>

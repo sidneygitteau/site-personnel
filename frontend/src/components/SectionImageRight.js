@@ -2,7 +2,7 @@ import React from 'react';
 
 const SectionImageRight = ({ title, text, image, alt }) => (
   <div className="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8">
-    <div className="md:w-1/2 text-center md:text-left text-justify">
+    <div className="md:w-1/2 text-center md:text-left text-justify strong">
       {title && <h2 className="text-4xl font-bold mb-6">{title}</h2>}
       <p className="text-3xl leading-relaxed">{text}</p>
     </div>

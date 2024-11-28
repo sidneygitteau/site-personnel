@@ -9,7 +9,7 @@ const SectionImageLeft = ({ title, text, image, alt }) => (
         className="rounded-lg shadow-lg h-[500px] w-auto transform hover:scale-105 transition duration-500"
       />
     </div>
-    <div className="md:w-1/2 text-center md:text-left">
+    <div className="md:w-1/2 text-center md:text-left text-justify strong">
       {title && <h2 className="text-4xl font-bold mb-6">{title}</h2>}
       <p className="text-3xl leading-relaxed">{text}</p>
     </div>
