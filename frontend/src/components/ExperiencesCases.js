@@ -3,11 +3,7 @@ import React from 'react';
 const ExperiencesCases = ({ title, location, date, details, logo }) => {
   return (
     <div className="relative flex items-start space-x-8">
-      {/* Point et barre à gauche */}
-      <div className="flex flex-col items-center">
-        <div className="w-6 h-6 bg-white rounded-full border-4 border-[#1A2443] z-10"></div>
-        <div className="w-1 bg-gradient-to-b from-[#1A2443] to-gray-700 flex-grow -mt-3"></div>
-      </div>
+      
 
       {/* Contenu principal */}
       <div className="bg-gradient-to-br from-[#1A2443] to-black rounded-lg shadow-lg p-6 flex-grow text-white relative">

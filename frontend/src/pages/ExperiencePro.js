@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ExperiencesCases from '../components/ExperiencesCases';
+import VerticalTimeline from '../components/VerticalTimeline';
 
 import MNHLogo from '../assets/mnh-logo.png';
 
@@ -35,43 +36,63 @@ const ExperiencePro = () => {
     },
   ];
 
+  const [pointPositions, setPointPositions] = useState([]);
+  const refs = useRef([]);
+  const timelinePoints = [
+    { label: "Septembre 2022 - Septembre 2024", offset: 0 }, 
+    { label: "Avril 2022 - Juillet 2022", offset: 460 }, // Deuxième point à 200px du haut
+  ];
+  
+
+  useEffect(() => {
+    const positions = refs.current.map((ref) => {
+      if (ref) {
+        const rect = ref.getBoundingClientRect();
+        return rect.top + rect.height / 2; 
+      }
+      return 0;
+    });
+    setPointPositions(positions);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-[#212E53] text-white">
-        {/* Animation de fond */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#212E53] to-black opacity-40 animate-gradient blur-lg"></div>
+      {/* Animation de fond */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#212E53] to-black opacity-40 animate-gradient blur-lg"></div>
 
-        <div className="relative z-10 space-y-24 px-8 py-12 pt-20">
-            {/* Titre principal */}
-            <div className="text-center mb-12">
-                <h1 className="text-5xl font-extrabold mb-4 text-white">Expériences Professionnelles</h1>
-                <p className="text-xl text-white-400">Voici un aperçu de mon parcours professionnel.</p>
-            </div>
+      <div className="relative z-10 space-y-24 px-8 py-12 pt-20">
+        {/* Titre principal */}
+        <div className="text-center mb-12">
+          <h1 className="text-5xl font-extrabold mb-4 text-white">Expériences Professionnelles</h1>
+          <p className="text-3xl text-white-400">Présentation de mon parcours professionnel</p>
+        </div>
 
+        {/* Liste des expériences avec barre de liaison */}
+        <div className="relative flex space-x-12 px-8 lg:px-24">
+          {/* Barre verticale avec points */}
+          <div className="hidden lg:flex">
+          <VerticalTimeline points={timelinePoints} />
+          </div>
 
-
-            {/* Liste des expériences avec barre de liaison */}
-            <div className="relative flex space-x-12 px-8 lg:px-24">
-                {/* Barre verticale avec points */}
-                <div className="hidden lg:flex flex-col items-center relative">
-                {/* Barre principale */}
-                <div className="absolute w-1 h-full bg-gradient-to-b from-[#1A2443] to-gray-700"></div>
-                </div>
-
-                {/* Liste des expériences */}
-                <div className="space-y-12 flex-grow">
-                {experiences.map((experience, index) => (
-                    <ExperiencesCases
-                    key={index}
-                    title={experience.title}
-                    location={experience.location}
-                    date={experience.date}
-                    details={experience.details}
-                    logo={experience.logo}
-                    />
-                ))}
-                </div>
-            </div>
-        </div>            
+          {/* Liste des expériences */}
+          <div className="space-y-12 flex-grow">
+            {experiences.map((experience, index) => (
+              <div
+                key={index}
+                ref={(el) => (refs.current[index] = el)} // Associe chaque expérience à son ref
+              >
+                <ExperiencesCases
+                  title={experience.title}
+                  location={experience.location}
+                  date={experience.date}
+                  details={experience.details}
+                  logo={experience.logo}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

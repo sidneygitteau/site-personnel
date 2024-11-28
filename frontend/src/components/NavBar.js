@@ -1,4 +1,5 @@
 import { Disclosure } from '@headlessui/react';
+import { useState } from 'react';
 import SG_BLANC from '../assets/SG_BLANC.png';
 
 const navigation = [
@@ -16,16 +17,27 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const [showBox, setShowBox] = useState(false);
+
+  const toggleBox = () => {
+    setShowBox((prev) => !prev);
+  };
+
   return (
     <Disclosure as="nav" className="bg-[#212E53] fixed top-0 left-0 w-full z-50 shadow-lg">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* logo à gauche */}
           <div className="flex items-center">
-            <img className="h-24 w-auto" src={SG_BLANC} alt="Logo" />
+            <img
+              className="h-24 w-auto cursor-pointer"
+              src={SG_BLANC}
+              alt="Logo"
+              onClick={toggleBox}
+            />
           </div>
 
-          {/* tous les differents boutons de navigation au centre */}
+          {/* Tous les differents boutons de navigation au centre */}
           <div className="hidden sm:flex flex-grow justify-center space-x-4">
             {navigation.map((item) => (
               <a
@@ -52,6 +64,19 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
+      {/* Boîte affichée au clic sur le logo */}
+      {showBox && (
+        <div className="absolute top-20 left-4 sm:left-8 bg-gray-800 text-white p-4 rounded-md shadow-lg">
+          <p className="text-2xl font-bold text-center">Indice mot secret : P _ _</p>
+          <button
+            className="mt-4 bg-[#1A2443] text-white px-4 py-2 rounded-md hover:bg-[#1A2443]"
+            onClick={toggleBox}
+          >
+            Fermer
+          </button>
+        </div>
+      )}
     </Disclosure>
   );
 }
