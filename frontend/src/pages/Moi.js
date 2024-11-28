@@ -22,6 +22,8 @@ const Moi = () => {
             </h1>
         </div>
 
+        
+
         {/* Section 1: Moi */}
         <SectionImageRight
           title="Qui suis-je ?"

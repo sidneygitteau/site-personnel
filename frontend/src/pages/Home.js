@@ -84,13 +84,15 @@ const Home = () => {
       {/* Animation de fond */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#212E53] to-black opacity-40 animate-gradient blur-lg"></div>
 
-      <div className="relative z-10 px-8 space-y-24 pt-20">
+      <div className="relative z-10 px-8 space-y-24 py-0 pt-20">
 
       {/* Titre principal centré en haut */}
       <div className="text-center">
           <h1 className="text-5xl font-extrabold mb-4 text-white">Bienvenue !</h1>
         </div>
       </div>
+
+      
       {/* Section principale */}
       <div
         className={`relative z-10 flex flex-col md:flex-row items-center justify-center px-4 py-8 transition-opacity duration-700 ${

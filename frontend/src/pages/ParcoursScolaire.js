@@ -59,8 +59,8 @@ const ParcoursScolaire = () => {
       <div className="relative z-10 space-y-24 px-8 py-12 pt-20">
         {/* Titre principal */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold mb-4 text-white">Parcours Scolaire</h1>
-          <p className="text-3xl text-white-400">Présentation de mes études supérieures </p>
+          <h1 className="text-5xl font-extrabold mb-8 text-white">Parcours Scolaire</h1>
+          <p className="text-3xl text-white-400 mt-2">Présentation de mes études supérieures : </p>
         </div>
 
         {/* Liste des formations avec barre de liaison */}

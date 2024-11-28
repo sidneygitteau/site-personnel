@@ -36,14 +36,14 @@ const ExperiencePro = () => {
     },
   ];
 
-  const [pointPositions, setPointPositions] = useState([]);
+  //const [pointPositions, setPointPositions] = useState([]);
   const refs = useRef([]);
   const timelinePoints = [
     { label: "Septembre 2022 - Septembre 2024", offset: 0 }, 
     { label: "Avril 2022 - Juillet 2022", offset: 460 }, // Deuxième point à 200px du haut
   ];
   
-
+  {/*
   useEffect(() => {
     const positions = refs.current.map((ref) => {
       if (ref) {
@@ -53,7 +53,7 @@ const ExperiencePro = () => {
       return 0;
     });
     setPointPositions(positions);
-  }, []);
+  }, []);   */}
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-[#212E53] text-white">
@@ -63,8 +63,8 @@ const ExperiencePro = () => {
       <div className="relative z-10 space-y-24 px-8 py-12 pt-20">
         {/* Titre principal */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold mb-4 text-white">Expériences Professionnelles</h1>
-          <p className="text-3xl text-white-400">Présentation de mon parcours professionnel</p>
+          <h1 className="text-5xl font-extrabold mb-8 text-white">Expériences Professionnelles</h1>
+          <p className="text-3xl text-white-400 mt-2">Présentation de mon parcours professionnel : </p>
         </div>
 
         {/* Liste des expériences avec barre de liaison */}
