@@ -14,12 +14,12 @@ const Moi = () => {
       {/* Animation de fond */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#212E53] to-black opacity-40 animate-gradient blur-lg"></div>
 
-      <div className="relative z-10 space-y-24 px-8 py-12 pt-20">
+      <div className="relative z-10 space-y-24 px-8 py-0 pt-20">
         {/* Titre principal */}
         <div className="text-center mb-12">
           <h1 className="text-5xl font-extrabold mb-4 text-white">
               À propos de moi
-          </h1>
+            </h1>
         </div>
 
         {/* Section 1: Moi */}
